@@ -13,6 +13,7 @@
 		AB5FE5C9256A7DF500D27F8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB5FE5C7256A7DF500D27F8F /* Main.storyboard */; };
 		AB5FE5CB256A7DF700D27F8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB5FE5CA256A7DF700D27F8F /* Assets.xcassets */; };
 		AB5FE5CE256A7DF700D27F8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB5FE5CC256A7DF700D27F8F /* LaunchScreen.storyboard */; };
+		AB5FE5D7256A806D00D27F8F /* LargeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5FE5D6256A806D00D27F8F /* LargeImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AB5FE5CA256A7DF700D27F8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB5FE5CD256A7DF700D27F8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB5FE5CF256A7DF700D27F8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB5FE5D6256A806D00D27F8F /* LargeImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				AB5FE5C3256A7DF500D27F8F /* SceneDelegate.swift */,
 				AB5FE5C5256A7DF500D27F8F /* ViewController.swift */,
 				AB5FE5C7256A7DF500D27F8F /* Main.storyboard */,
+				AB5FE5D6256A806D00D27F8F /* LargeImageViewController.swift */,
 				AB5FE5CA256A7DF700D27F8F /* Assets.xcassets */,
 				AB5FE5CC256A7DF700D27F8F /* LaunchScreen.storyboard */,
 				AB5FE5CF256A7DF700D27F8F /* Info.plist */,
@@ -139,6 +142,7 @@
 			files = (
 				AB5FE5C6256A7DF500D27F8F /* ViewController.swift in Sources */,
 				AB5FE5C2256A7DF500D27F8F /* AppDelegate.swift in Sources */,
+				AB5FE5D7256A806D00D27F8F /* LargeImageViewController.swift in Sources */,
 				AB5FE5C4256A7DF500D27F8F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
