@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     var saiseiOrTeishiFlag = false //saiseiならtrue
     let buttonShadowLength: CGFloat = 2
     let shadowOpacity: Float = 0.8
+    var VCImage: UIImage!
+    var imageViewCanTap = true //推せるならtrue
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +29,11 @@ class ViewController: UIViewController {
         buttonStyle(buttonName: saiseiOrTeishiButton)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageViewAnimation))
         imageView.addGestureRecognizer(tapGesture)
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
-        gradientLayer.colors = [UIColor(red: 0.8, green: 0.0, blue: 0.73, alpha: 1).cgColor,
-                                UIColor(red: 0.1, green: 0.0, blue: 0.40, alpha: 1).cgColor]
-        gradientLayer.startPoint = CGPoint.init(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint.init(x: 1, y: 0.5)
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
+        gradient()
 
     }
+    
+   
     
     @IBAction func nextImageButtonAction(_ sender: Any) {
         ButtonTappedCount += 1
@@ -59,12 +56,14 @@ class ViewController: UIViewController {
             NextAndBackButtonStyle(buttonName: backImageButton, isEnable: false, alpha: 0.6)
             saiseiOrTeishiButton.setTitle("停止", for: .normal)
             saiseiOrTeishiFlag = true
+            imageViewCanTap = false
         }else if saiseiOrTeishiFlag == true {
             timer?.invalidate()
             NextAndBackButtonStyle(buttonName: nextImageButton, isEnable: true, alpha: 1)
             NextAndBackButtonStyle(buttonName: backImageButton, isEnable: true, alpha: 1)
             saiseiOrTeishiButton.setTitle("再生", for: .normal)
             saiseiOrTeishiFlag = false
+            imageViewCanTap = true
         }
     }
     
@@ -115,13 +114,19 @@ class ViewController: UIViewController {
     }
     
     @objc func imageViewAnimation() {
-        UIView.animate(withDuration: 0.1, delay: 0, options: [.curveLinear], animations: {
-            self.imageView.layer.masksToBounds = true
-            self.imageView.transform = CGAffineTransform(translationX: self.buttonShadowLength, y: self.buttonShadowLength)
-        }) {_ in
-            self.imageView.layer.masksToBounds = false
-            self.imageView.transform = .identity
+        if imageViewCanTap == true {
+            UIView.animate(withDuration: 0.1, delay: 0, options: [.curveLinear], animations: {
+                self.imageView.layer.masksToBounds = true
+                self.imageView.transform = CGAffineTransform(translationX: self.buttonShadowLength, y: self.buttonShadowLength)
+            }) {_ in
+                self.imageView.layer.masksToBounds = false
+                self.imageView.transform = .identity
+            }
+            let largeImageVC = storyboard?.instantiateViewController(identifier: "LargeImageID") as! LargeImageViewController
+            largeImageVC.ButtonTappedCount = ButtonTappedCount
+            present(largeImageVC, animated: true)
         }
+        
     }
     
     func nextImageButtonAnimation() {
@@ -154,6 +159,15 @@ class ViewController: UIViewController {
         }
     }
     
+    func gradient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
+        gradientLayer.colors = [UIColor(red: 0.8, green: 0.0, blue: 0.73, alpha: 1).cgColor,
+                                UIColor(red: 0.1, green: 0.0, blue: 0.40, alpha: 1).cgColor]
+        gradientLayer.startPoint = CGPoint.init(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint.init(x: 1, y: 0.5)
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
     
     
 }
