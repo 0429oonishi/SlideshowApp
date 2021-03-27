@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KLu-Z0-wOZ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Large Image View Controller-->
+        <scene sceneID="nfB-7s-oWV">
+            <objects>
+                <viewController storyboardIdentifier="LargeImageViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KLu-Z0-wOZ" customClass="LargeImageViewController" customModule="SlideshowApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SlU-Rd-UtU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1yh-kQ-gvB">
+                                <rect key="frame" x="0.0" y="74" width="414" height="376.5"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvr-TZ-fv2">
+                                <rect key="frame" x="157" y="550.5" width="100" height="50"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KLZ-5S-vUL"/>
+                                    <constraint firstAttribute="width" constant="100" id="yDC-OF-NQJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                <state key="normal" title="閉じる"/>
+                                <connections>
+                                    <action selector="backButtonDidTapped:" destination="KLu-Z0-wOZ" eventType="touchUpInside" id="eLQ-kW-fuv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lTY-NX-enL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Mvr-TZ-fv2" firstAttribute="top" secondItem="1yh-kQ-gvB" secondAttribute="bottom" constant="100" id="Dpv-EE-cJd"/>
+                            <constraint firstItem="1yh-kQ-gvB" firstAttribute="leading" secondItem="lTY-NX-enL" secondAttribute="leading" id="OV2-Iz-EFt"/>
+                            <constraint firstItem="lTY-NX-enL" firstAttribute="trailing" secondItem="1yh-kQ-gvB" secondAttribute="trailing" id="bP9-46-4ok"/>
+                            <constraint firstItem="Mvr-TZ-fv2" firstAttribute="centerX" secondItem="SlU-Rd-UtU" secondAttribute="centerX" id="e9P-BJ-nis"/>
+                            <constraint firstItem="1yh-kQ-gvB" firstAttribute="top" secondItem="lTY-NX-enL" secondAttribute="top" constant="30" id="niV-95-Tak"/>
+                            <constraint firstItem="1yh-kQ-gvB" firstAttribute="height" secondItem="SlU-Rd-UtU" secondAttribute="height" multiplier="0.42" id="o56-fR-P8E"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="m0R-rJ-czm"/>
+                    <connections>
+                        <outlet property="backButton" destination="Mvr-TZ-fv2" id="uIy-3j-tBg"/>
+                        <outlet property="largeImage" destination="1yh-kQ-gvB" id="GQZ-kS-sIH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mNs-YA-G4C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="230" y="31"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
